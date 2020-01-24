@@ -1,5 +1,5 @@
 class Element {
-	constructor(data,next=null,prev=null){
+	constructor(data,next = null,prev = null){
 		this.data=data;
 		this.next=next;
 		this.prev=prev;
@@ -11,6 +11,7 @@ class Stack {
 		this.length=0;
 		this.head=null;
 		this.tail=null;
+
 	}
 
 	pushToList(data){
@@ -18,13 +19,13 @@ class Stack {
 		if(this.length==0){
 			this.head = element;
 			this.tail = element;
-			alert("Pushed succefuly !");
+			alert("Pushed successfuly !");
 		}else
 		{
 			this.tail.next = element;
 			element.prev = this.tail;
 			this.tail=element;
-			alert("Pushed succefuly !");
+			alert("Pushed successfuly !");
 		}
 
 		this.length++;
@@ -41,12 +42,12 @@ class Stack {
 		if(this.length == 1){
 			this.head = null;
 			this.tail = null;
-			alert("Popped succefuly !");
+			alert("Popped successfuly !");
 		}else {
 			this.tail = this.tail.prev;
 			this.tail.next = null;
 			element.prev = null;
-			alert("Popped succefuly !");
+			alert("Popped successfuly !");
 		}
 
 		this.length--;
@@ -61,7 +62,7 @@ class Stack {
 		var element = this.head;
 		if(this.length == 1){
 			this.head=null;
-			this.tail==null;
+			this.tail=null;
 			alert("Dequeued");
 		}else {
 			this.head = element.next;
@@ -103,6 +104,7 @@ let queue = new Stack();
 // STACK
 function empiler(){
 	stack.pushToList(document.getElementById("data").value);
+	document.getElementById('data').value = '';
 }
 
 function depiler(){
@@ -129,6 +131,7 @@ function printElement(){
 
 function enfiler(){
 	queue.pushToList(document.getElementById("data2").value);
+	document.getElementById('data2').value = '';
 
 }
 function defiler(){
