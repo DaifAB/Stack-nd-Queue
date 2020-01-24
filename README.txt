@@ -1,0 +1,1 @@
+https://daifab.github.io/Stack-nd-Queue/.
