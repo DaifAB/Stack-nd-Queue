@@ -65,12 +65,14 @@ class Stack {
 		if(this.length == 1){
 			this.head=null;
 			this.tail=null;
-			alert("Dequeued");
+			this.pointer=null;
+			
 		}else {
 			this.head = element.next;
 			this.head.prev = null;
 			element.next = null;
-			alert("Dequeued");
+			this.pointer = this.head;
+			
 
 		}
 		this.length--;
