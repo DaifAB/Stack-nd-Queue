@@ -11,21 +11,21 @@ class Stack {
 		this.length=0;
 		this.head=null;
 		this.tail=null;
+		this.pointer = null;
 
 	}
 
 	pushToList(data){
 		var element = new Element(data);
 		if(this.length==0){
-			this.head = element;
-			this.tail = element;
-			alert("Pushed successfuly !");
+			this.pointer  = this.tail =  this.head  = element;
+			
 		}else
 		{
 			this.tail.next = element;
 			element.prev = this.tail;
 			this.tail=element;
-			alert("Pushed successfuly !");
+			
 		}
 
 		this.length++;
@@ -42,12 +42,14 @@ class Stack {
 		if(this.length == 1){
 			this.head = null;
 			this.tail = null;
-			alert("Popped successfuly !");
+			this.pointer = null;
+	
 		}else {
 			this.tail = this.tail.prev;
 			this.tail.next = null;
 			element.prev = null;
-			alert("Popped successfuly !");
+			this.pointer = this.tail;
+		
 		}
 
 		this.length--;
@@ -76,21 +78,21 @@ class Stack {
 	}
 
 	next(){
-		if(this.head && this.head.next){
-			this.head = this.head.next;
+		if(this.pointer && this.pointer.next){
+			this.pointer = this.pointer.next;
 		}
 	}
 
 	previous(){
-		if(this.head && this.head.prev){
-			this.head = this.head.prev;
+		if(this.pointer && this.pointer.prev){
+			this.pointer = this.pointer.prev;
 		}
 	}
 
 	dispElement(){
-		if(this.head){
-			return this.head.data;
-		} else return "error";
+		if(this.pointer){
+			return this.pointer.data;
+		} else return "No Data";
 	}
 
 
